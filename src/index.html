@@ -1,56 +1,179 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#24283b" />
+    <meta
+      name="description"
+      content="Sam Jing Wen is a software engineer. Find him on LinkedIn, GitHub, email, and The Woke Coder."
+    />
+    <link rel="canonical" href="https://samjingwen.io/" />
+    <link rel="icon" href="/images/favicon.ico" sizes="48x48" />
+    <link
+      rel="preload"
+      href="/fonts/literata-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="/styles.css" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sam Jing Wen</title>
-    <link rel="icon" href="public/images/favicon.ico">
-    <link rel="stylesheet" href="public/css/fontawesome.min.css">
-    <link rel="stylesheet" href="public/css/styles.css">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4LZ95Y5KL"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Sam Jing Wen - Software Engineer" />
+    <meta
+      property="og:description"
+      content="Find Sam Jing Wen on LinkedIn, GitHub, email, and The Woke Coder."
+    />
+    <meta property="og:url" content="https://samjingwen.io/" />
+    <meta
+      property="og:image"
+      content="https://samjingwen.io/images/sjw-1000.jpg"
+    />
+    <meta property="og:image:width" content="1000" />
+    <meta property="og:image:height" content="1000" />
+    <meta property="og:image:alt" content="Portrait of Sam Jing Wen" />
 
-        gtag('config', 'G-L4LZ95Y5KL');
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Sam Jing Wen - Software Engineer" />
+    <meta
+      name="twitter:description"
+      content="Find Sam Jing Wen on LinkedIn, GitHub, email, and The Woke Coder."
+    />
+    <meta
+      name="twitter:image"
+      content="https://samjingwen.io/images/sjw-1000.jpg"
+    />
+
+    <title>Sam Jing Wen - Software Engineer</title>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sam Jing Wen",
+        "jobTitle": "Software Engineer",
+        "url": "https://samjingwen.io/",
+        "image": "https://samjingwen.io/images/sjw-1000.jpg",
+        "email": "mailto:samjingwen@u.nus.edu",
+        "sameAs": [
+          "https://www.linkedin.com/in/samjingwen/",
+          "https://github.com/samjingwen/",
+          "https://thewokecoder.io/"
+        ]
+      }
     </script>
-</head>
 
-<body>
-    <div id="particles-js"></div>
-    <div id="main">
-        <div id="intro-text">
-            <p id="greeting-text">Hello | 你好</p>
-            <div id="description-text">
-                <p><strong>Sam Jing Wen</strong></p>
-                <p><strong>Software Engineer</strong></p>
-            </div>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-L4LZ95Y5KL"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-L4LZ95Y5KL");
+    </script>
+  </head>
+  <body>
+    <canvas id="particle-field" aria-hidden="true"></canvas>
+
+    <div class="page-shell">
+      <main class="profile" aria-labelledby="profile-name">
+        <div class="identity">
+          <h1 id="profile-name" class="name">Sam Jing Wen</h1>
+          <div class="identity-meta">
+            <p class="greeting" aria-label="Hello in English and Chinese">
+              <span>Hello</span>
+              <span class="greeting-separator" aria-hidden="true">/</span>
+              <span lang="zh-Hans">你好</span>
+            </p>
+            <span class="identity-divider" aria-hidden="true">·</span>
+            <p class="role">Software Engineer</p>
+          </div>
         </div>
 
-        <img src="public/images/sjw.jpg" alt="avatar" id="avatar-img" />
-        <div id="social-links">
-            <a title="LinkedIn" href="https://www.linkedin.com/in/samjingwen/" rel="noopener noreferrer" target="_blank">
-                <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
-            </a>
-            <a title="GitHub" href="https://github.com/samjingwen/" rel="noopener noreferrer" target="_blank">
-                <i class="fa-brands fa-github" aria-hidden="true"></i>
-            </a>
-            <a title="Email" href="mailto:samjingwen@u.nus.edu" target="_top">
-                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-            </a>
-            <a title="The Woke Coder" href="https://thewokecoder.io" rel="noopener noreferrer" target="_blank">
-                <i class="fa-solid fa-align-left" aria-hidden="true"></i>
-            </a>
-        </div>
-        <h2 id="copyright">Copyright &copy; 2019 Sam Jing Wen</h2>
+        <figure class="portrait-frame">
+          <picture>
+            <source
+              type="image/avif"
+              srcset="/images/sjw-500.avif 500w, /images/sjw-1000.avif 1000w"
+              sizes="(max-width: 640px) 52vw, 30vw"
+            />
+            <source
+              type="image/webp"
+              srcset="/images/sjw-500.webp 500w, /images/sjw-1000.webp 1000w"
+              sizes="(max-width: 640px) 52vw, 30vw"
+            />
+            <img
+              src="/images/sjw-1000.jpg"
+              srcset="/images/sjw-500.jpg 500w, /images/sjw-1000.jpg 1000w"
+              sizes="(max-width: 640px) 52vw, 30vw"
+              width="1000"
+              height="1000"
+              alt="Portrait of Sam Jing Wen"
+              fetchpriority="high"
+            />
+          </picture>
+        </figure>
+
+        <nav class="destinations" aria-label="Find Sam online">
+          <a
+            href="https://www.linkedin.com/in/samjingwen/"
+            rel="me noopener noreferrer"
+            target="_blank"
+            aria-label="LinkedIn"
+            title="LinkedIn"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.05-1.86-3.05-1.87 0-2.15 1.46-2.15 2.96v5.66H9.32V8.99h3.41v1.57h.05c.47-.9 1.63-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28h.03ZM5.3 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.08 20.45H3.52V8.99h3.56v11.46Z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://github.com/samjingwen/"
+            rel="me noopener noreferrer"
+            target="_blank"
+            aria-label="GitHub"
+            title="GitHub"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 .7a11.3 11.3 0 0 0-3.57 22.02c.57.1.77-.25.77-.55v-2.16c-3.15.68-3.81-1.34-3.81-1.34-.52-1.31-1.26-1.66-1.26-1.66-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.73 2.65 1.23 3.3.94.1-.73.4-1.23.72-1.51-2.51-.29-5.15-1.26-5.15-5.59 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.44.11-3 0 0 .96-.31 3.11 1.16a10.8 10.8 0 0 1 5.67 0c2.16-1.47 3.11-1.16 3.11-1.16.62 1.56.23 2.71.11 3 .73.79 1.17 1.8 1.17 3.04 0 4.34-2.64 5.3-5.16 5.58.41.35.77 1.04.77 2.1v3.16c0 .3.21.66.78.55A11.3 11.3 0 0 0 12 .7Z"
+              />
+            </svg>
+          </a>
+          <a
+            href="mailto:samjingwen@u.nus.edu"
+            aria-label="Email"
+            title="Email"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M20 4H4a2 2 0 0 0-1.99 2L2 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://thewokecoder.io/"
+            rel="noopener noreferrer"
+            target="_blank"
+            aria-label="The Woke Coder"
+            title="The Woke Coder"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Zm-7 14H7v-2h5v2Zm5-4H7v-2h10v2Zm0-4H7V7h10v2Z"
+              />
+            </svg>
+          </a>
+        </nav>
+      </main>
     </div>
-    <!-- scripts -->
-    <script src="public/js/particles.js"></script>
-    <script src="public/js/app.js"></script>
-</body>
 
+    <script type="module" src="/main.ts"></script>
+  </body>
 </html>

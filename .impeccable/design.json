@@ -1,0 +1,244 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-13T16:22:00Z",
+  "title": "Design System: Centered Signal",
+  "extensions": {
+    "colorMeta": {
+      "storm-ground": {
+        "role": "neutral",
+        "displayName": "Storm Ground",
+        "canonical": "#24283b",
+        "tonalRamp": [
+          "#11131d",
+          "#1a1d2b",
+          "#24283b",
+          "#343a55",
+          "#4a5275",
+          "#687291",
+          "#9ca4c0",
+          "#e4e7f2"
+        ]
+      },
+      "deep-panel": {
+        "role": "neutral",
+        "displayName": "Deep Panel",
+        "canonical": "#1f2335",
+        "tonalRamp": [
+          "#0f1119",
+          "#171a28",
+          "#1f2335",
+          "#30364e",
+          "#464e6d",
+          "#646d8d",
+          "#9ca5be",
+          "#e4e7f1"
+        ]
+      },
+      "primary-ink": {
+        "role": "neutral",
+        "displayName": "Primary Ink",
+        "canonical": "#c0caf5",
+        "tonalRamp": [
+          "#171a29",
+          "#252a41",
+          "#3b4265",
+          "#59628f",
+          "#7d87ba",
+          "#a2ace0",
+          "#c0caf5",
+          "#f1f3ff"
+        ]
+      },
+      "secondary-ink": {
+        "role": "neutral",
+        "displayName": "Secondary Ink",
+        "canonical": "#a9b1d6",
+        "tonalRamp": [
+          "#171923",
+          "#282b3c",
+          "#40465f",
+          "#5e6685",
+          "#7e87aa",
+          "#a9b1d6",
+          "#cdd2e7",
+          "#f0f2f8"
+        ]
+      },
+      "signal-blue": {
+        "role": "primary",
+        "displayName": "Signal Blue",
+        "canonical": "#7aa2f7",
+        "tonalRamp": [
+          "#111a2d",
+          "#1d3155",
+          "#2d4d84",
+          "#416bb2",
+          "#5a88df",
+          "#7aa2f7",
+          "#adc6ff",
+          "#edf3ff"
+        ]
+      },
+      "active-cyan": {
+        "role": "secondary",
+        "displayName": "Active Cyan",
+        "canonical": "#7dcfff",
+        "tonalRamp": [
+          "#101d27",
+          "#17394c",
+          "#245c78",
+          "#3480a6",
+          "#52a9d7",
+          "#7dcfff",
+          "#b6e3ff",
+          "#effaff"
+        ]
+      },
+      "particle-line": {
+        "role": "neutral",
+        "displayName": "Particle Line",
+        "canonical": "#565f89",
+        "tonalRamp": [
+          "#11131b",
+          "#202432",
+          "#343a50",
+          "#565f89",
+          "#747fa8",
+          "#99a2c4",
+          "#c3c8dd",
+          "#eef0f6"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Editorial Name",
+        "purpose": "The single-line personal name and no other content."
+      },
+      "body": {
+        "displayName": "Identity Body",
+        "purpose": "The professional role beneath the name."
+      },
+      "label": {
+        "displayName": "Quiet Label",
+        "purpose": "The bilingual greeting metadata."
+      }
+    },
+    "shadows": [
+      {
+        "name": "portrait-lift",
+        "value": "0 1.25rem 2.5rem rgb(10 12 20 / 42%), 0 0.35rem 0.8rem rgb(10 12 20 / 30%), inset 0 1px 0 rgb(226 229 242 / 13%), inset 0 -1px 0 rgb(10 12 20 / 45%)",
+        "purpose": "Raises the portrait as a photographic tile."
+      },
+      {
+        "name": "button-lift",
+        "value": "0 0.35rem 0.75rem rgb(10 12 20 / 30%), inset 0 1px 0 rgb(226 229 242 / 13%), inset 0 -1px 0 rgb(10 12 20 / 45%)",
+        "purpose": "Gives icon destinations a compact tactile surface."
+      },
+      {
+        "name": "button-pressed",
+        "value": "0 0.1rem 0.2rem rgb(10 12 20 / 24%), inset 0 0.2rem 0.35rem rgb(10 12 20 / 45%)",
+        "purpose": "Compresses an icon destination during activation."
+      }
+    ],
+    "motion": [
+      {
+        "name": "identity-arrival",
+        "value": "520ms to 620ms cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "A short stagger through greeting, name, and role."
+      },
+      {
+        "name": "portrait-reveal",
+        "value": "720ms cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Top-to-bottom portrait reveal with a short rise."
+      },
+      {
+        "name": "icon-feedback",
+        "value": "180ms ease-out",
+        "purpose": "Color, surface, and vertical movement for destination feedback."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact-mobile",
+        "value": "23rem"
+      },
+      {
+        "name": "mobile",
+        "value": "44rem"
+      },
+      {
+        "name": "short-viewport",
+        "value": "42rem height"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Destination Icon",
+      "kind": "nav",
+      "refersTo": "destination-icon",
+      "description": "An accessible icon-only destination with a three-rem square target.",
+      "html": "<a class=\"ds-destination-icon\" href=\"#\" aria-label=\"LinkedIn\" title=\"LinkedIn\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.05-1.86-3.05-1.87 0-2.15 1.46-2.15 2.96v5.66H9.32V8.99h3.41v1.57h.05c.47-.9 1.63-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28h.03Z\" /></svg></a>",
+      "css": ".ds-destination-icon { display: grid; width: 3rem; height: 3rem; place-items: center; border: 1px solid rgb(192 202 245 / 12%); border-radius: 0.75rem; background: var(--surface, #1f2335); box-shadow: 0 0.35rem 0.75rem rgb(10 12 20 / 30%), inset 0 1px 0 rgb(226 229 242 / 13%), inset 0 -1px 0 rgb(10 12 20 / 45%); color: var(--ink-soft, #a9b1d6); text-decoration: none; transition: color 180ms ease-out, box-shadow 180ms ease-out, transform 180ms ease-out; } .ds-destination-icon svg { width: 1.35rem; height: 1.35rem; fill: currentColor; } .ds-destination-icon:hover { box-shadow: 0 0.6rem 1.1rem rgb(10 12 20 / 42%), inset 0 1px 0 rgb(226 229 242 / 18%); color: var(--accent-active, #7dcfff); transform: translateY(-0.15rem); } .ds-destination-icon:active { box-shadow: inset 0 0.2rem 0.35rem rgb(10 12 20 / 45%); transform: translateY(0.08rem) scale(0.97); } .ds-destination-icon:focus-visible { outline: 2px solid var(--accent-active, #7dcfff); outline-offset: 0.3rem; }"
+    },
+    {
+      "name": "Square Portrait",
+      "kind": "custom",
+      "description": "The sole photographic object with a strict square silhouette.",
+      "html": "<figure class=\"ds-portrait\"><div role=\"img\" aria-label=\"Portrait placeholder\"></div></figure>",
+      "css": ".ds-portrait { width: 15rem; margin: 0; overflow: hidden; border: 1px solid rgb(192 202 245 / 12%); border-radius: 1rem; aspect-ratio: 1; background: var(--surface, #1f2335); box-shadow: 0 1.25rem 2.5rem rgb(10 12 20 / 42%), 0 0.35rem 0.8rem rgb(10 12 20 / 30%), inset 0 1px 0 rgb(226 229 242 / 13%), inset 0 -1px 0 rgb(10 12 20 / 45%); } .ds-portrait div { width: 100%; height: 100%; background: var(--particle-line, #565f89); }"
+    },
+    {
+      "name": "Identity Block",
+      "kind": "custom",
+      "description": "The name leads, with the greeting and role grouped on one supporting center line.",
+      "html": "<div class=\"ds-identity\"><h1>Sam Jing Wen</h1><div><p>Hello <span>/</span> 你好</p><span>·</span><p>Software Engineer</p></div></div>",
+      "css": ".ds-identity { display: grid; justify-items: center; gap: 0.75rem; text-align: center; font-family: 'Literata Variable', Georgia, serif; color: var(--ink, #c0caf5); } .ds-identity h1 { margin: 0; font-size: clamp(2.5rem, 7vw, 4.5rem); font-weight: 540; letter-spacing: -0.04em; line-height: 0.94; } .ds-identity > div { display: flex; align-items: baseline; gap: 0.65rem; } .ds-identity p { margin: 0; color: var(--ink-soft, #a9b1d6); } .ds-identity p span { color: var(--accent, #7aa2f7); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Quiet Signal",
+    "overview": "Centered Signal treats a personal profile as one calm identity instrument rather than a collection of cards or sections. The name leads a compact centered block, with the bilingual greeting and role sharing one metadata line above one truthful square portrait and four icon-only destinations. The atmosphere is dark, human, and technical without becoming terminal-themed or ornamental.",
+    "keyCharacteristics": [
+      "A centered vertical composition with broad negative space.",
+      "One photographic subject and no decorative stock imagery.",
+      "A flat Tokyo Night ground with restrained raised portrait and button surfaces.",
+      "Four authored icon destinations with accessible names and generous targets.",
+      "Sparse motion that remains subordinate to identity and navigation."
+    ],
+    "rules": [
+      {
+        "name": "The Rare Signal Rule",
+        "body": "Blue and cyan identify emphasis or interaction; they never become broad decorative fills.",
+        "section": "colors"
+      },
+      {
+        "name": "The Identity Block Rule",
+        "body": "The name leads while the greeting and role share one supporting line, keeping all three items in one visual and semantic group without an eyebrow label.",
+        "section": "typography"
+      },
+      {
+        "name": "The Center Line Rule",
+        "body": "The identity, portrait, and destinations share the same horizontal center at every supported width.",
+        "section": "layout"
+      },
+      {
+        "name": "The Material Restraint Rule",
+        "body": "Only the portrait and icon buttons receive elevation; text and page structure remain flat.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do lead with the name and keep the greeting and role together on one supporting line.",
+      "Do give every icon-only destination an accessible name and at least a 44px target.",
+      "Do preserve the uniform Tokyo Night field and broad negative space."
+    ],
+    "donts": [
+      "Don't add cards, pills, badges, gradients, glass effects, glow, or heavy shadows.",
+      "Don't add visible labels to the destination row unless the product direction changes.",
+      "Don't add stock photography, decorative video, professional claims, or metrics without real evidence.",
+      "Don't let canvas interaction intercept semantic content or navigation."
+    ]
+  }
+}

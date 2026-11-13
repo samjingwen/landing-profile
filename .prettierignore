@@ -1,0 +1,10 @@
+dist
+coverage
+node_modules
+playwright-report
+test-results
+.playwright-mcp
+.taste-skill
+.impeccable/questions
+.impeccable/mocks
+.impeccable/review

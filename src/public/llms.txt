@@ -1,0 +1,10 @@
+# Sam Jing Wen
+
+> Sam Jing Wen is a software engineer. This one-page profile provides his confirmed professional destinations and contact link.
+
+## Destinations
+
+- [LinkedIn](https://www.linkedin.com/in/samjingwen/): Professional profile
+- [GitHub](https://github.com/samjingwen/): Public code and projects
+- [Email](mailto:samjingwen@u.nus.edu): Direct contact
+- [The Woke Coder](https://thewokecoder.io/): Sam's publication

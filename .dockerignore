@@ -1,0 +1,14 @@
+.git
+.github
+.idea
+.impeccable
+.taste-skill
+coverage
+dist
+node_modules
+playwright-report
+test-results
+**/.DS_Store
+**/.env
+**/.env.*
+**/.npmrc
