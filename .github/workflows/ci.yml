@@ -149,6 +149,7 @@ jobs:
         env:
           TRIVY_USERNAME: ${{ github.actor }}
           TRIVY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+          TRIVY_PLATFORM: linux/arm64
 
       - name: Smoke-test published digest
         run: scripts/smoke-container.sh "${IMAGE_NAME}@${{ steps.build.outputs.digest }}" "$GITHUB_SHA"
