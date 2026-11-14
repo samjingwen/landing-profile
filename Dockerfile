@@ -16,11 +16,14 @@ FROM node:26.13.1-alpine3.23@sha256:39d8c143e60e99ae98f014bebea1e72fc96d3c9bdf95
 
 WORKDIR /app
 
+ARG VCS_REF=unknown
+
 COPY --link package.json package-lock.json ./
 RUN --mount=type=cache,target=/root/.npm npm ci
 
 COPY --link . .
-RUN npm run build
+RUN npm run build \
+  && node -e 'require("node:fs").writeFileSync("dist/version.json", `${JSON.stringify({ revision: process.argv[1] })}\n`)' "$VCS_REF"
 
 FROM caddy:2.11.9-alpine@sha256:003a97808e781aa9f7e75cc2f43d34d461099031faf5e20faefb9f61126836f0 AS runtime
 

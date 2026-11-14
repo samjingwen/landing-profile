@@ -17,6 +17,9 @@
 		@index path / /index.html
 		header @index Cache-Control "no-cache"
 
+		@version path /version.json
+		header @version Cache-Control "no-store"
+
 		file_server
 	}
 }
