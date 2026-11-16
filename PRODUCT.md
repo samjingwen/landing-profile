@@ -9,7 +9,7 @@ web
 ## Stack
 
 Vite and TypeScript without a component framework.
-The production artifact is a static site packaged as a container for a future K3s deployment.
+The production artifact is a static site packaged as a hardened ARM64 container and deployed through pull-based GitOps.
 
 ## Users
 
@@ -27,7 +27,7 @@ The current name, role, email address, and four destinations are confirmed as cu
 The site must remain fast, responsive, keyboard accessible, and usable if the decorative canvas fails.
 Particle hover and click interactions pass through foreground content without blocking links or navigation.
 The particle field deliberately ignores the operating system reduced-motion preference.
-GitHub Actions, S3, and CloudFront deployment are outside the new deployment path.
+GitHub Actions validates and publishes the application artifact, while production reconciliation remains pull-based and receives no cluster credentials.
 
 ## Brand Commitments
 
