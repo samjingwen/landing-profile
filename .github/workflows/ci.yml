@@ -95,8 +95,8 @@ jobs:
       - name: Define immutable image tags
         id: image
         run: |
-          echo "candidate=${IMAGE_NAME}:candidate-master-${GITHUB_RUN_ID}-${GITHUB_SHA}" >> "$GITHUB_OUTPUT"
-          echo "approved=${IMAGE_NAME}:master-${GITHUB_RUN_ID}-${GITHUB_SHA}" >> "$GITHUB_OUTPUT"
+          echo "candidate=${IMAGE_NAME}:candidate-master-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${GITHUB_SHA}" >> "$GITHUB_OUTPUT"
+          echo "approved=${IMAGE_NAME}:master-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${GITHUB_SHA}" >> "$GITHUB_OUTPUT"
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@99012661954931238ded8c8b007157a8430204e1 # v4.4.0
@@ -153,6 +153,41 @@ jobs:
 
       - name: Smoke-test published digest
         run: scripts/smoke-container.sh "${IMAGE_NAME}@${{ steps.build.outputs.digest }}" "$GITHUB_SHA"
+
+      - name: Record post-gate approval
+        run: |
+          jq --null-input \
+            --arg repository "$GITHUB_REPOSITORY" \
+            --arg ref "$GITHUB_REF" \
+            --arg commit "$GITHUB_SHA" \
+            --arg run_id "$GITHUB_RUN_ID" \
+            --arg run_attempt "$GITHUB_RUN_ATTEMPT" \
+            --arg tag "${{ steps.image.outputs.approved }}" \
+            --arg digest "${{ steps.build.outputs.digest }}" \
+            '{
+              schema: 1,
+              repository: $repository,
+              ref: $ref,
+              commit: $commit,
+              run_id: $run_id,
+              run_attempt: $run_attempt,
+              approved_tag: $tag,
+              digest: $digest,
+              gates: {
+                vulnerability_scan: "passed",
+                hardened_runtime_smoke_test: "passed"
+              }
+            }' > "$RUNNER_TEMP/approved-image.json"
+
+      - name: Attest post-gate approval
+        uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6 # v4.2.2
+        with:
+          subject-name: ${{ env.IMAGE_NAME }}
+          subject-digest: ${{ steps.build.outputs.digest }}
+          predicate-type: https://samjingwen.io/attestations/approved-image/v1
+          predicate-path: ${{ runner.temp }}/approved-image.json
+          push-to-registry: true
+          create-storage-record: false
 
       - name: Promote approved image
         run: |
