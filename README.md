@@ -87,7 +87,7 @@ The production image:
 
 Pull requests run the quality suite and an ARM64 container smoke test.
 Successful merges to protected `master` publish an immutable approved image only after provenance, SBOM, vulnerability, and hardened-runtime checks pass.
-Production reconciliation is pull-based, and the workflow verifies the deployed public revision without receiving cluster credentials.
+Production reconciliation remains pull-based, while deployment proposals and public revision verification are owner-initiated during the current security migration.
 
 ## Repository structure
 

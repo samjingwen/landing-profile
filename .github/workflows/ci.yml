@@ -170,17 +170,3 @@ jobs:
             echo "${{ steps.image.outputs.approved }}@${{ steps.build.outputs.digest }}"
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
-
-  verify-deployment:
-    name: Verify production deployment
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-    needs:
-      - publish
-    runs-on: ubuntu-24.04
-    timeout-minutes: 20
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-
-      - name: Wait for the public revision
-        run: scripts/wait-for-deployment.sh https://samjingwen.io "$GITHUB_SHA" 1080
