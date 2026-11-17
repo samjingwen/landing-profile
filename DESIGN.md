@@ -1,6 +1,6 @@
 ---
 name: Centered Signal
-description: A centered Tokyo Night identity system built around editorial type, one truthful portrait, and accessible icon links.
+description: A centered Tokyo Night identity system built around editorial type, one truthful portrait, and accessible professional and product links.
 colors:
   storm-ground: "#24283b"
   deep-panel: "#1f2335"
@@ -51,7 +51,7 @@ components:
 **Creative North Star: "The Quiet Signal"**
 
 Centered Signal treats a personal profile as one calm identity instrument rather than a collection of cards or sections.
-The name leads a compact centered block, with the bilingual greeting and role sharing one metadata line above one truthful square portrait and four icon-only destinations.
+The name leads a compact centered block, with the bilingual greeting and role sharing one metadata line above one truthful square portrait, four icon-only destinations, and two quiet product links.
 The atmosphere is dark, human, and technical, with shallow physical depth on the portrait and controls rather than glow or ornamental chrome.
 
 **Key Characteristics:**
@@ -60,6 +60,7 @@ The atmosphere is dark, human, and technical, with shallow physical depth on the
 - One photographic subject and no decorative stock imagery.
 - A flat Tokyo Night ground with restrained raised portrait and button surfaces.
 - Four authored icon destinations with accessible names and generous targets.
+- Two domain-led product links set as flat typography without a visible section label.
 - Sparse motion that remains subordinate to identity and navigation.
 
 ## Colors
@@ -108,12 +109,13 @@ The name leads while the greeting and role share one supporting line, keeping al
 ## Layout
 
 The page uses one centered vertical stack inside a full-height shell.
-The identity block leads with the name and a shared greeting-role line above the square portrait, and the destinations form a compact horizontal row beneath it.
+The identity block leads with the name and a shared greeting-role line above the square portrait.
+The professional destinations form a compact horizontal row beneath it, followed by two flat product links that share the same center line.
 The composition scales continuously across desktop, tablet, and mobile rather than changing reading order.
 The page remains one screen on common viewports and allows safe vertical scrolling on short or zoomed screens.
 
 **The Center Line Rule.**
-The identity, portrait, and destinations share the same horizontal center at every supported width.
+The identity, portrait, professional destinations, and product links share the same horizontal center at every supported width.
 
 ## Elevation & Depth
 
@@ -145,6 +147,13 @@ Hover increases the lift, changes the icon to Active Cyan, and shifts the contro
 Pressing compresses the surface with an inset shadow and a slight downward movement.
 Keyboard focus uses a two-pixel Active Cyan outline with a clear offset.
 
+### Product Links
+
+The product links use their domains as the strongest visible text and one factual sentence as supporting copy.
+They remain flat on the page ground with no card container, border, shadow, logo, or visible section heading.
+An authored external-link arrow and the domain shift to Active Cyan on hover while keyboard focus uses the shared two-pixel outline.
+The links sit in two columns on wider screens and become one vertical sequence on mobile.
+
 ### Portrait
 
 The portrait is a softly rounded and raised square figure using responsive AVIF, WebP, and JPEG sources.
@@ -162,6 +171,7 @@ The field uses 18 particles on desktop, 14 on tablet, and 8 on mobile, and it pa
 
 - **Do** lead with the name and keep the greeting and role together on one supporting line.
 - **Do** give every icon-only destination an accessible name and at least a 44px target.
+- **Do** use factual product language taken from the products themselves.
 - **Do** preserve the uniform Tokyo Night field and broad negative space.
 
 ### Don't:
@@ -169,5 +179,6 @@ The field uses 18 particles on desktop, 14 on tablet, and 8 on mobile, and it pa
 - **Don't** spread elevation to the identity text, footer, particle field, or new decorative containers.
 - **Don't** add pills, badges, gradients, glass effects, glow, or undirected shadows.
 - **Don't** add visible labels to the destination row unless the product direction changes.
+- **Don't** turn the product links into cards, logo tiles, or a labelled portfolio grid.
 - **Don't** add stock photography, decorative video, professional claims, or metrics without real evidence.
 - **Don't** let canvas interaction intercept semantic content or navigation.

@@ -33,6 +33,10 @@ test("shows the complete personal link hub", async ({ page }) => {
   await expect(
     page.getByRole("img", { name: "Portrait of Sam Jing Wen" }),
   ).toBeVisible();
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute(
+    "content",
+    "Sam Jing Wen is a software engineer building UltraCareer and FreeQuantCamp. Find his work and professional links.",
+  );
 
   const destinations = page
     .getByRole("navigation", { name: "Find Sam online" })
@@ -53,6 +57,26 @@ test("shows the complete personal link hub", async ({ page }) => {
   await expect(
     page.getByRole("link", { name: "The Woke Coder" }),
   ).toHaveAttribute("href", "https://thewokecoder.io/");
+
+  const selectedWork = page.getByRole("region", { name: "Selected work" });
+  await expect(selectedWork.getByRole("link")).toHaveCount(2);
+  const ultraCareer = selectedWork.getByRole("link", {
+    name: /ultracareer\.ai Finds matching jobs/,
+  });
+  const freeQuantCamp = selectedWork.getByRole("link", {
+    name: /freequantcamp\.com Focused mathematics/,
+  });
+  for (const [link, href] of [
+    [ultraCareer, "https://ultracareer.ai/"],
+    [freeQuantCamp, "https://freequantcamp.com/"],
+  ] as const) {
+    await expect(link).toHaveAttribute("href", href);
+    await expect(link).toHaveAttribute("target", "_blank");
+    await expect(link).toHaveAttribute("rel", "noopener noreferrer");
+  }
+  await expect(
+    page.getByRole("heading", { name: /projects|selected work/i }),
+  ).toHaveCount(0);
 });
 
 test("groups the identity and uses accessible icon-only links", async ({
@@ -88,7 +112,12 @@ test("keeps the profile centered with touch-sized destinations", async ({
   page,
 }) => {
   const geometry = await page.evaluate(() => {
-    const centeredSelectors = [".identity", ".portrait-frame", ".destinations"];
+    const centeredSelectors = [
+      ".identity",
+      ".portrait-frame",
+      ".destinations",
+      ".selected-work",
+    ];
     const centers = centeredSelectors.map((selector) => {
       const element = document.querySelector<HTMLElement>(selector);
       if (!element) throw new Error(`Missing ${selector}`);
@@ -96,7 +125,9 @@ test("keeps the profile centered with touch-sized destinations", async ({
       return box.left + box.width / 2;
     });
     const targets = Array.from(
-      document.querySelectorAll<HTMLElement>(".destinations a"),
+      document.querySelectorAll<HTMLElement>(
+        ".destinations a, .selected-work a",
+      ),
       (element) => {
         const box = element.getBoundingClientRect();
         return { width: box.width, height: box.height };
@@ -136,12 +167,18 @@ test("uses a restrained single-color name and tactile surfaces", async ({
   expect(await firstDestination.evaluate(getBoxShadow)).not.toBe("none");
 });
 
-test("shows keyboard focus on every icon destination", async ({ page }) => {
+test("shows keyboard focus on every destination", async ({ page }) => {
   const destinations = page
     .getByRole("navigation", { name: "Find Sam online" })
     .getByRole("link");
+  const selectedWork = page
+    .getByRole("region", { name: "Selected work" })
+    .getByRole("link");
 
-  for (const destination of await destinations.all()) {
+  for (const destination of [
+    ...(await destinations.all()),
+    ...(await selectedWork.all()),
+  ]) {
     await page.keyboard.press("Tab");
     await expect(destination).toBeFocused();
     await expect(destination).toHaveCSS("outline-style", "solid");

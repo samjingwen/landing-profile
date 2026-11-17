@@ -17,13 +17,13 @@ First-time visitors who want to identify Sam Jing Wen and reach his professional
 
 ## Product Purpose
 
-The site is a concise personal landing page that introduces Sam and routes visitors to LinkedIn, GitHub, email, and The Woke Coder.
-Success means visitors can recognize Sam and reach the intended destination without searching or scrolling through unrelated content.
+The site is a concise personal landing page that introduces Sam and routes visitors to his professional links and current products.
+Success means visitors can recognize Sam, discover his work, and reach the intended destination without searching through unrelated content.
 
 ## Capabilities and Constraints
 
 The experience remains a focused one-screen link hub on common screens, with safe scrolling on short or zoomed viewports.
-The current name, role, email address, and four destinations are confirmed as current.
+The current name, role, email address, four professional destinations, and two product destinations are confirmed as current.
 The site must remain fast, responsive, keyboard accessible, and usable if the decorative canvas fails.
 Particle hover and click interactions pass through foreground content without blocking links or navigation.
 The particle field deliberately ignores the operating system reduced-motion preference.
@@ -39,12 +39,13 @@ The visual atmosphere remains dark, with a sparse interactive particle field.
 ## Evidence on Hand
 
 The current portrait and its optimized variants are under `src/public/images/`.
-The confirmed destinations are LinkedIn, GitHub, email, and The Woke Coder.
+The confirmed professional destinations are LinkedIn, GitHub, email, and The Woke Coder.
+The confirmed product destinations are UltraCareer and FreeQuantCamp.
 No testimonials, client claims, employment claims, or project statistics are available and none should be fabricated.
 
 ## Product Principles
 
-- Make identity and destinations immediately legible.
+- Make identity, work, and destinations immediately legible.
 - Keep interaction atmospheric but subordinate to content.
 - Prefer a small, durable implementation over framework complexity.
 - Preserve factual content and avoid invented professional claims.
