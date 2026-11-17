@@ -40,7 +40,7 @@ The visual atmosphere remains dark, with a sparse interactive particle field.
 
 The current portrait and its optimized variants are under `src/public/images/`.
 The confirmed professional destinations are LinkedIn, GitHub, email, and The Woke Coder.
-The confirmed product destinations are UltraCareer and FreeQuantCamp.
+The confirmed product destinations are UltraCareer AI and FreeQuantCamp.
 No testimonials, client claims, employment claims, or project statistics are available and none should be fabricated.
 
 ## Product Principles

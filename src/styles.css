@@ -296,7 +296,7 @@ a:focus-visible {
   animation-delay: 440ms;
 }
 
-.work-domain {
+.work-name {
   color: var(--ink);
   font-size: clamp(1rem, 0.94rem + 0.2vw, 1.125rem);
   font-variation-settings: "opsz" 20;
@@ -337,7 +337,7 @@ a:focus-visible {
   transform: translateY(-0.15rem);
 }
 
-.work-link:hover .work-domain {
+.work-link:hover .work-name {
   color: var(--accent-active);
 }
 

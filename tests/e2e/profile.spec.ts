@@ -35,7 +35,7 @@ test("shows the complete personal link hub", async ({ page }) => {
   ).toBeVisible();
   await expect(page.locator('meta[name="description"]')).toHaveAttribute(
     "content",
-    "Sam Jing Wen is a software engineer building UltraCareer and FreeQuantCamp. Find his work and professional links.",
+    "Sam Jing Wen is a software engineer building UltraCareer AI and FreeQuantCamp. Find his work and professional links.",
   );
 
   const destinations = page
@@ -61,10 +61,10 @@ test("shows the complete personal link hub", async ({ page }) => {
   const selectedWork = page.getByRole("region", { name: "Selected work" });
   await expect(selectedWork.getByRole("link")).toHaveCount(2);
   const ultraCareer = selectedWork.getByRole("link", {
-    name: /ultracareer\.ai Finds matching jobs/,
+    name: /UltraCareer AI Finds matching jobs/,
   });
   const freeQuantCamp = selectedWork.getByRole("link", {
-    name: /freequantcamp\.com Focused mathematics/,
+    name: /FreeQuantCamp Focused mathematics/,
   });
   for (const [link, href] of [
     [ultraCareer, "https://ultracareer.ai/"],
@@ -175,7 +175,7 @@ test("uses a restrained single-color name and tactile surfaces", async ({
   expect(restingWorkShadow).not.toBe("none");
 
   await firstWorkLink.hover();
-  await expect(firstWorkLink.locator(".work-domain")).toHaveCSS(
+  await expect(firstWorkLink.locator(".work-name")).toHaveCSS(
     "color",
     "rgb(125, 207, 255)",
   );

@@ -60,7 +60,7 @@ The atmosphere is dark, human, and technical, with shallow physical depth on the
 - One photographic subject and no decorative stock imagery.
 - A flat Tokyo Night ground with restrained raised portrait and button surfaces.
 - Four authored icon destinations with accessible names and generous targets.
-- Two domain-led product links set on restrained tactile surfaces without a visible section label.
+- Two name-led product links set on restrained tactile surfaces without a visible section label.
 - Sparse motion that remains subordinate to identity and navigation.
 
 ## Colors
@@ -149,7 +149,7 @@ Keyboard focus uses a two-pixel Active Cyan outline with a clear offset.
 
 ### Product Links
 
-The product links use their domains as the strongest visible text and one factual sentence as supporting copy.
+The product links use their product names as the strongest visible text and one factual sentence as supporting copy.
 They use the same Deep Panel, pale top inset, dark lower inset, directional shadow, and control radius as the social buttons without adding logos or a visible section heading.
 Hover increases their lift, pressing collapses them into an inset surface, and keyboard focus uses the shared two-pixel outline.
 The authored external-link arrow and domain both shift to Active Cyan on hover.
