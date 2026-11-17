@@ -259,6 +259,105 @@ a:focus-visible {
   fill: currentcolor;
 }
 
+.selected-work {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.75rem, 2vw, 1rem);
+  width: min(100%, 42rem);
+  margin-top: clamp(1.75rem, 4vw, 2.5rem);
+  text-align: left;
+}
+
+.work-link {
+  position: relative;
+  display: grid;
+  gap: 0.45rem;
+  min-width: 0;
+  min-height: 8rem;
+  align-content: start;
+  padding: 1rem 2.75rem 1rem 1rem;
+  border: 1px solid rgb(192 202 245 / 12%); /* taste-skill-ignore */
+  border-radius: var(--radius-control);
+  background: var(--surface);
+  box-shadow: /* taste-skill-ignore */
+    0 0.45rem 0.9rem var(--shadow-near),
+    inset 0 1px 0 var(--surface-highlight),
+    inset 0 -1px 0 rgb(10 12 20 / 45%);
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition:
+    color 180ms ease-out,
+    box-shadow 180ms ease-out,
+    transform 180ms ease-out;
+  animation: arrive 560ms 400ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.work-link:nth-child(2) {
+  animation-delay: 440ms;
+}
+
+.work-name {
+  color: var(--ink);
+  font-size: clamp(1rem, 0.94rem + 0.2vw, 1.125rem);
+  font-variation-settings: "opsz" 20;
+  font-weight: 620;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  transition: color 180ms ease-out;
+}
+
+.work-description {
+  font-size: 1rem;
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+.work-arrow {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: none;
+  stroke: var(--particle-line);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+  transition:
+    stroke 180ms ease-out,
+    transform 180ms ease-out;
+}
+
+.work-link:hover {
+  box-shadow: /* taste-skill-ignore */
+    0 0.7rem 1.25rem var(--shadow-depth),
+    inset 0 1px 0 rgb(226 229 242 / 18%),
+    inset 0 -1px 0 rgb(10 12 20 / 45%);
+  color: var(--ink);
+  transform: translateY(-0.15rem);
+}
+
+.work-link:hover .work-name {
+  color: var(--accent-active);
+}
+
+.work-link:hover .work-arrow {
+  stroke: var(--accent-active);
+  transform: translate(0.15rem, -0.15rem);
+}
+
+.work-link:active .work-arrow {
+  transform: translate(0.05rem, -0.05rem);
+}
+
+.work-link:active {
+  box-shadow: /* taste-skill-ignore */
+    0 0.1rem 0.2rem rgb(10 12 20 / 24%),
+    inset 0 0.2rem 0.35rem rgb(10 12 20 / 45%),
+    inset 0 -1px 0 var(--surface-highlight);
+  transform: translateY(0.08rem) scale(0.99);
+}
+
 @keyframes arrive {
   from {
     opacity: 0;
@@ -312,6 +411,17 @@ a:focus-visible {
   .destinations {
     gap: 0.35rem;
     margin-top: 1.25rem;
+  }
+
+  .selected-work {
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+    width: min(100%, 24rem);
+    margin-top: 1.75rem;
+  }
+
+  .work-link {
+    min-height: 7.5rem;
   }
 }
 
