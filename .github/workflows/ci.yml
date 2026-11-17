@@ -41,6 +41,9 @@ jobs:
       - name: Run quality checks
         run: npm run check
 
+      - name: Test production dispatch request
+        run: scripts/test-request-production-deployment.sh
+
   container:
     name: ARM64 container
     runs-on: ubuntu-24.04
@@ -196,6 +199,29 @@ jobs:
             "${IMAGE_NAME}@${{ steps.build.outputs.digest }}"
           docker buildx imagetools inspect "${{ steps.image.outputs.approved }}"
 
+      - name: Create infrastructure dispatch token
+        id: infra-token
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+        with:
+          client-id: ${{ vars.INFRA_DISPATCH_CLIENT_ID }}
+          private-key: ${{ secrets.INFRA_DISPATCH_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: home-k3s-infra
+          permission-contents: write
+
+      - name: Request production deployment
+        env:
+          APPROVED_TAG: ${{ steps.image.outputs.approved }}
+          DIGEST: ${{ steps.build.outputs.digest }}
+          GH_TOKEN: ${{ steps.infra-token.outputs.token }}
+        run: |
+          scripts/request-production-deployment.sh \
+            "$APPROVED_TAG" \
+            "$DIGEST" \
+            "$GITHUB_SHA" \
+            "$GITHUB_RUN_ID" \
+            "$GITHUB_RUN_ATTEMPT"
+
       - name: Summarize approved image
         run: |
           {
@@ -204,4 +230,6 @@ jobs:
             echo '```text'
             echo "${{ steps.image.outputs.approved }}@${{ steps.build.outputs.digest }}"
             echo '```'
+            echo
+            echo "Production deployment was requested through the protected infrastructure workflow."
           } >> "$GITHUB_STEP_SUMMARY"
