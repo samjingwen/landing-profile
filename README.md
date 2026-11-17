@@ -87,7 +87,9 @@ The production image:
 
 Pull requests run the quality suite and an ARM64 container smoke test.
 Successful merges to protected `master` publish an immutable approved image only after provenance, SBOM, vulnerability, and hardened-runtime checks pass.
-Production reconciliation remains pull-based, while deployment proposals and public revision verification are owner-initiated during the current security migration.
+The protected producer then dispatches the exact approved tag, digest, commit, run ID, and run attempt to `home-k3s-infra`.
+Protected infrastructure automation verifies the post-gate attestation, creates an image-only proposal, requires both infrastructure checks, merges the exact validated SHA, lets Flux reconcile production, and verifies the public revision and health endpoints.
+No scheduled registry polling, cluster Git write credential, GitHub-hosted kubeconfig, manual dispatch, or manual infrastructure merge is part of the normal deployment path.
 
 ## Repository structure
 
