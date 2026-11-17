@@ -89,7 +89,7 @@ This is a public repository, so standard GitHub-hosted runner compute is not bil
 Pull request jobs use read-only repository permissions and receive no package or deployment credentials.
 Pull requests run the quality suite and an ARM64 container smoke test.
 Successful merges to protected `master` publish an immutable approved image only after provenance, SBOM, vulnerability, and hardened-runtime checks pass.
-The container and publication jobs run natively on `ubuntu-24.04-arm`; Buildx remains responsible for reproducible image construction and caching, while QEMU emulation is not installed.
+The quality, container, and publication jobs run natively on `ubuntu-24.04-arm`; Buildx remains responsible for reproducible image construction and caching, while QEMU emulation is not installed.
 The native runner removes emulation overhead rather than reducing private-repository Actions usage.
 The protected producer then dispatches the exact approved tag, digest, commit, run ID, and run attempt to `home-k3s-infra`.
 Protected infrastructure automation verifies the post-gate attestation, creates an image-only proposal, requires both infrastructure checks, merges the exact validated SHA, lets Flux reconcile production, and verifies the public revision and health endpoints.
