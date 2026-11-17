@@ -24,7 +24,7 @@ The experience is designed to remain:
 - Caddy serving the production static artifact on unprivileged port `8080`.
 - Vitest for unit tests.
 - Playwright and axe-core for browser and accessibility checks.
-- Docker Buildx for reproducible ARM64 container builds.
+- Native GitHub-hosted ARM64 runners with Docker Buildx for reproducible container builds.
 
 ## Local development
 
@@ -85,8 +85,12 @@ The production image:
 
 ## Continuous delivery
 
+This is a public repository, so standard GitHub-hosted runner compute is not billed.
+Pull request jobs use read-only repository permissions and receive no package or deployment credentials.
 Pull requests run the quality suite and an ARM64 container smoke test.
 Successful merges to protected `master` publish an immutable approved image only after provenance, SBOM, vulnerability, and hardened-runtime checks pass.
+The container and publication jobs run natively on `ubuntu-24.04-arm`; Buildx remains responsible for reproducible image construction and caching, while QEMU emulation is not installed.
+The native runner removes emulation overhead rather than reducing private-repository Actions usage.
 The protected producer then dispatches the exact approved tag, digest, commit, run ID, and run attempt to `home-k3s-infra`.
 Protected infrastructure automation verifies the post-gate attestation, creates an image-only proposal, requires both infrastructure checks, merges the exact validated SHA, lets Flux reconcile production, and verifies the public revision and health endpoints.
 No scheduled registry polling, cluster Git write credential, GitHub-hosted kubeconfig, manual dispatch, or manual infrastructure merge is part of the normal deployment path.
