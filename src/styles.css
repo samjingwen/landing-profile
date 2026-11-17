@@ -262,7 +262,7 @@ a:focus-visible {
 .selected-work {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(1.75rem, 4vw, 3.25rem);
+  gap: clamp(0.75rem, 2vw, 1rem);
   width: min(100%, 42rem);
   margin-top: clamp(1.75rem, 4vw, 2.5rem);
   text-align: left;
@@ -273,12 +273,22 @@ a:focus-visible {
   display: grid;
   gap: 0.45rem;
   min-width: 0;
-  min-height: 4.75rem;
+  min-height: 8rem;
   align-content: start;
-  padding: 0.25rem 2rem 0.25rem 0;
+  padding: 1rem 2.75rem 1rem 1rem;
+  border: 1px solid rgb(192 202 245 / 12%); /* taste-skill-ignore */
+  border-radius: var(--radius-control);
+  background: var(--surface);
+  box-shadow: /* taste-skill-ignore */
+    0 0.45rem 0.9rem var(--shadow-near),
+    inset 0 1px 0 var(--surface-highlight),
+    inset 0 -1px 0 rgb(10 12 20 / 45%);
   color: var(--ink-soft);
   text-decoration: none;
-  transition: color 180ms ease-out;
+  transition:
+    color 180ms ease-out,
+    box-shadow 180ms ease-out,
+    transform 180ms ease-out;
   animation: arrive 560ms 400ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
 }
 
@@ -304,8 +314,8 @@ a:focus-visible {
 
 .work-arrow {
   position: absolute;
-  top: 0.15rem;
-  right: 0;
+  top: 1rem;
+  right: 1rem;
   width: 1.2rem;
   height: 1.2rem;
   fill: none;
@@ -319,7 +329,12 @@ a:focus-visible {
 }
 
 .work-link:hover {
+  box-shadow: /* taste-skill-ignore */
+    0 0.7rem 1.25rem var(--shadow-depth),
+    inset 0 1px 0 rgb(226 229 242 / 18%),
+    inset 0 -1px 0 rgb(10 12 20 / 45%);
   color: var(--ink);
+  transform: translateY(-0.15rem);
 }
 
 .work-link:hover .work-domain {
@@ -333,6 +348,14 @@ a:focus-visible {
 
 .work-link:active .work-arrow {
   transform: translate(0.05rem, -0.05rem);
+}
+
+.work-link:active {
+  box-shadow: /* taste-skill-ignore */
+    0 0.1rem 0.2rem rgb(10 12 20 / 24%),
+    inset 0 0.2rem 0.35rem rgb(10 12 20 / 45%),
+    inset 0 -1px 0 var(--surface-highlight);
+  transform: translateY(0.08rem) scale(0.99);
 }
 
 @keyframes arrive {
@@ -398,7 +421,7 @@ a:focus-visible {
   }
 
   .work-link {
-    min-height: 4.5rem;
+    min-height: 7.5rem;
   }
 }
 

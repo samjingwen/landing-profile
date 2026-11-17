@@ -60,7 +60,7 @@ The atmosphere is dark, human, and technical, with shallow physical depth on the
 - One photographic subject and no decorative stock imagery.
 - A flat Tokyo Night ground with restrained raised portrait and button surfaces.
 - Four authored icon destinations with accessible names and generous targets.
-- Two domain-led product links set as flat typography without a visible section label.
+- Two domain-led product links set on restrained tactile surfaces without a visible section label.
 - Sparse motion that remains subordinate to identity and navigation.
 
 ## Colors
@@ -110,7 +110,7 @@ The name leads while the greeting and role share one supporting line, keeping al
 
 The page uses one centered vertical stack inside a full-height shell.
 The identity block leads with the name and a shared greeting-role line above the square portrait.
-The professional destinations form a compact horizontal row beneath it, followed by two flat product links that share the same center line.
+The professional destinations form a compact horizontal row beneath it, followed by two tactile product links that share the same center line.
 The composition scales continuously across desktop, tablet, and mobile rather than changing reading order.
 The page remains one screen on common viewports and allows safe vertical scrolling on short or zoomed screens.
 
@@ -119,7 +119,7 @@ The identity, portrait, professional destinations, and product links share the s
 
 ## Elevation & Depth
 
-The ground and typography remain flat while the portrait and icon buttons rise above the page as tactile objects.
+The ground and typography remain flat while the portrait, icon buttons, and product links rise above the page as tactile objects.
 Soft downward shadows establish distance, a pale one-pixel top inset catches light, and a darker lower inset gives each surface thickness.
 Icon buttons increase their shadow on hover and collapse into an inset shadow when pressed.
 
@@ -130,7 +130,7 @@ Icon buttons increase their shadow on hover and collapse into an inset shadow wh
 - **Pressed control** replaces lift with a short inner shadow and a slight downward movement.
 
 **The Material Restraint Rule.**
-Only the portrait and icon buttons receive elevation; text and page structure remain flat.
+Only the portrait and interactive destinations receive elevation; identity text and page structure remain flat.
 
 ## Shapes
 
@@ -150,8 +150,9 @@ Keyboard focus uses a two-pixel Active Cyan outline with a clear offset.
 ### Product Links
 
 The product links use their domains as the strongest visible text and one factual sentence as supporting copy.
-They remain flat on the page ground with no card container, border, shadow, logo, or visible section heading.
-An authored external-link arrow and the domain shift to Active Cyan on hover while keyboard focus uses the shared two-pixel outline.
+They use the same Deep Panel, pale top inset, dark lower inset, directional shadow, and control radius as the social buttons without adding logos or a visible section heading.
+Hover increases their lift, pressing collapses them into an inset surface, and keyboard focus uses the shared two-pixel outline.
+The authored external-link arrow and domain both shift to Active Cyan on hover.
 The links sit in two columns on wider screens and become one vertical sequence on mobile.
 
 ### Portrait
@@ -179,6 +180,6 @@ The field uses 18 particles on desktop, 14 on tablet, and 8 on mobile, and it pa
 - **Don't** spread elevation to the identity text, footer, particle field, or new decorative containers.
 - **Don't** add pills, badges, gradients, glass effects, glow, or undirected shadows.
 - **Don't** add visible labels to the destination row unless the product direction changes.
-- **Don't** turn the product links into cards, logo tiles, or a labelled portfolio grid.
+- **Don't** turn the product links into logo tiles or a labelled portfolio grid.
 - **Don't** add stock photography, decorative video, professional claims, or metrics without real evidence.
 - **Don't** let canvas interaction intercept semantic content or navigation.

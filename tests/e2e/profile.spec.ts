@@ -156,6 +156,10 @@ test("uses a restrained single-color name and tactile surfaces", async ({
     .getByRole("navigation", { name: "Find Sam online" })
     .getByRole("link")
     .first();
+  const firstWorkLink = page
+    .getByRole("region", { name: "Selected work" })
+    .getByRole("link")
+    .first();
 
   await expect(name.locator("span")).toHaveCount(0);
   const nameSize = Number.parseFloat(await name.evaluate(getFontSize));
@@ -163,8 +167,21 @@ test("uses a restrained single-color name and tactile surfaces", async ({
 
   await expect(portrait).toHaveCSS("border-radius", "16px");
   await expect(firstDestination).toHaveCSS("border-radius", "12px");
+  await expect(firstWorkLink).toHaveCSS("border-radius", "12px");
+  await expect(firstWorkLink).toHaveCSS("border-top-width", "1px");
   expect(await portrait.evaluate(getBoxShadow)).not.toBe("none");
   expect(await firstDestination.evaluate(getBoxShadow)).not.toBe("none");
+  const restingWorkShadow = await firstWorkLink.evaluate(getBoxShadow);
+  expect(restingWorkShadow).not.toBe("none");
+
+  await firstWorkLink.hover();
+  await expect(firstWorkLink.locator(".work-domain")).toHaveCSS(
+    "color",
+    "rgb(125, 207, 255)",
+  );
+  await expect
+    .poll(() => firstWorkLink.evaluate(getBoxShadow))
+    .not.toBe(restingWorkShadow);
 });
 
 test("shows keyboard focus on every destination", async ({ page }) => {
